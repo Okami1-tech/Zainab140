@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff0d5">
+<title>A Little Sunshine for My Queen ☀️</title>
+
+<style>
+*{box-sizing:border-box}
+:root{
+ --cream:#fff7e8;
+ --pink:#f7d6d0;
+ --peach:#ffbd8c;
+ --gold:#e9ad52;
+ --brown:#795843;
+ --purple:#8e729f;
+}
+body{
+ margin:0;color:#594638;
+ font-family:Georgia,'Times New Roman',serif;
+ background:linear-gradient(180deg,#fff1d9,#ffe2d6,#f4dff0);
+ overflow-x:hidden;
+}
+#sky{
+ position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0
+}
+.cloud{
+ position:absolute;width:110px;height:40px;border-radius:50px;
+ background:#fff9f0;opacity:.65;filter:blur(1px);
+ animation:drift linear infinite;
+}
+.cloud:before,.cloud:after{
+ content:"";position:absolute;background:inherit;border-radius:50%;
+}
+.cloud:before{width:45px;height:45px;left:18px;top:-17px}
+.cloud:after{width:60px;height:60px;right:13px;top:-26px}
+@keyframes drift{
+ from{transform:translateX(-180px)}
+ to{transform:translateX(110vw)}
+}
+.petal{
+ position:absolute;width:10px;height:16px;
+ background:#f4a9b5;border-radius:80% 0 80% 0;
+ animation:petalfall linear infinite;
+ opacity:.7;
+}
+@keyframes petalfall{
+ from{transform:translateY(-30px) rotate(0deg)}
+ to{transform:translateY(110vh) rotate(720deg)}
+}
+.screen{
+ display:none;min-height:100svh;position:relative;z-index:1;
+ padding:35px 22px 75px;align-items:center;justify-content:center;
+ flex-direction:column;text-align:center;
+}
+.screen.active{display:flex;animation:enter 1s ease both}
+@keyframes enter{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+h1,h2{font-weight:normal}
+h1{font-size:clamp(52px,13vw,85px);line-height:.95;margin:0}
+h2{font-size:clamp(39px,10vw,58px);line-height:1;margin:0 0 23px}
+p{font-size:15px;line-height:1.9;color:#796250;max-width:430px;margin:0 auto 18px}
+.gold{color:#b77b2e}
+.purple{color:#9275a4}
+.eyebrow{
+ font-family:Arial,sans-serif;font-size:9px;letter-spacing:3px;
+ text-transform:uppercase;color:#a77b48;margin-bottom:24px;
+}
+.card{
+ width:min(100%,440px);padding:30px 22px;
+ border:1px solid #d9b97e77;
+ background:#fff8edcc;backdrop-filter:blur(7px);
+ border-radius:4px;box-shadow:0 20px 60px #ab7b5130;
+}
+.btn{
+ border:1px solid #b78b58;background:#fff8ed66;color:#715237;
+ padding:15px 25px;margin-top:24px;
+ letter-spacing:2px;font-size:10px;text-transform:uppercase;
+ cursor:pointer;transition:.3s;
+}
+.btn:hover{background:#b78b58;color:white}
+.rule{width:48px;height:1px;background:#c49a5b;margin:24px auto}
+.counter{
+ position:fixed;bottom:13px;left:0;right:0;z-index:8;
+ text-align:center;font-family:Arial,sans-serif;
+ font-size:9px;letter-spacing:2px;color:#9c8267;
+}
+.sun{
+ width:125px;height:125px;border-radius:50%;
+ margin:0 auto 30px;
+ background:radial-gradient(circle,#fff6c5,#ffd47c 60%,#ffba67);
+ box-shadow:0 0 40px #ffcd7180,0 0 100px #ffbd5550;
+ animation:sunrise 4s ease-in-out infinite alternate;
+}
+@keyframes sunrise{
+ from{transform:translateY(10px);box-shadow:0 0 30px #ffcd7160}
+ to{transform:translateY(-8px);box-shadow:0 0 80px #ffcd71aa}
+}
+.flower{
+ width:180px;height:180px;position:relative;margin:0 auto 30px;
+ animation:flowerturn 25s linear infinite;
+}
+@keyframes flowerturn{to{transform:rotate(360deg)}}
+.petalflower{
+ position:absolute;width:54px;height:78px;border-radius:50%;
+ background:linear-gradient(180deg,#ffb8c8,#ffe2c6);
+ top:51px;left:63px;transform-origin:27px 39px;
+ box-shadow:0 0 10px #f5b5c155;
+}
+.petalflower:nth-child(1){transform:translateY(-48px)}
+.petalflower:nth-child(2){transform:rotate(45deg) translateY(-48px)}
+.petalflower:nth-child(3){transform:rotate(90deg) translateY(-48px)}
+.petalflower:nth-child(4){transform:rotate(135deg) translateY(-48px)}
+.petalflower:nth-child(5){transform:rotate(180deg) translateY(-48px)}
+.petalflower:nth-child(6){transform:rotate(225deg) translateY(-48px)}
+.petalflower:nth-child(7){transform:rotate(270deg) translateY(-48px)}
+.petalflower:nth-child(8){transform:rotate(315deg) translateY(-48px)}
+.flowercenter{
+ position:absolute;top:65px;left:65px;width:50px;height:50px;
+ border-radius:50%;background:radial-gradient(circle,#fff5b7,#e7a845);
+ box-shadow:0 0 25px #e7a84577;
+}
+.heart{
+ font-size:43px;color:#d78d9e;
+ animation:heart 2s ease-in-out infinite;
+ display:inline-block;
+}
+@keyframes heart{50%{transform:scale(1.15)}}
+.letter{font-size:21px;line-height:1.7;text-align:left;color:#72573f}
+.signature{text-align:center;font-size:31px;color:#b78143;margin-top:26px}
+</style>
+</head>
+
+<body>
+<div id="sky"></div>
+<div class="counter" id="counter">A LITTLE SUNSHINE · 01 / 06</div>
+
+<!-- 1: OPENING -->
+<section class="screen active" id="s0">
+ <div class="eyebrow">A little gift from Muhammad ☀️</div>
+ <div class="card">
+  <div class="sun"></div>
+  <h1>A little<br><span class="gold">sunshine</span></h1>
+  <h2 style="font-size:36px;margin-top:15px">for my Queen.</h2>
+  <div class="rule"></div>
+  <p>Even on days when the sky isn't at its brightest, there's always a little light worth finding.</p>
+  <p>And today, I wanted to send some of that light to you.</p>
+  <div class="heart">♡</div>
+ </div>
+ <button class="btn" onclick="go(1)">Open your sunshine →</button>
+</section>
+
+<!-- 2: REASSURANCE -->
+<section class="screen" id="s1">
+ <div class="eyebrow">A little update from your man</div>
+ <div class="sun"></div>
+ <h2>I'm a little<br>under the weather.</h2>
+ <div class="card">
+  <p>My love, I haven't been feeling my best physically today. I think I may have a fever, so I'm taking it easy and trying to rest.</p>
+  <p>But please don't let that make your heart worry too much. I'm taking care of myself, InshaAllah, and I pray Allah restores my strength soon.</p>
+  <p class="gold">I wanted you to know, not so you would worry, but because you are someone I love sharing my days with.</p>
+ </div>
+ <button class="btn" onclick="go(2)">Something for your smile →</button>
+</section>
+
+<!-- 3: SMILE -->
+<section class="screen" id="s2">
+ <div class="eyebrow">Your smile deserves its own sunshine</div>
+ <div class="flower">
+  <div class="petalflower"></div><div class="petalflower"></div>
+  <div class="petalflower"></div><div class="petalflower"></div>
+  <div class="petalflower"></div><div class="petalflower"></div>
+  <div class="petalflower"></div><div class="petalflower"></div>
+  <div class="flowercenter"></div>
+ </div>
+ <h2>Don't forget<br>to smile, okay?</h2>
+ <p>Even if today is ordinary. Even if something didn't go as planned. Even if the world feels like it is moving too fast.</p>
+ <p>I hope something small makes you laugh today. I hope someone is kind to you. I hope you eat something delicious, feel beautiful, and remember how precious you are.</p>
+ <p class="gold" style="font-size:23px">You deserve gentle days, my Queen.</p>
+ <button class="btn" onclick="go(3)">A little reminder →</button>
+</section>
+
+<!-- 4: HOPE -->
+<section class="screen" id="s3">
+ <div class="eyebrow">For the days ahead</div>
+ <div class="sun"></div>
+ <h2>Better days<br>are coming.</h2>
+ <div class="card">
+  <p>Life won't always feel easy. We may have days when we're tired, days when things don't go according to plan, and days when we simply need to pause.</p>
+  <p>But we don't have to solve our whole future in one day.</p>
+  <p>We can take one step. Make one dua. Do one good thing. Rest. Then try again tomorrow, InshaAllah.</p>
+  <p class="gold" style="font-size:23px">There is still so much goodness ahead of us.</p>
+ </div>
+ <button class="btn" onclick="go(4)">A dua for you 🤲</button>
+</section>
+
+<!-- 5: DUA -->
+<section class="screen" id="s4">
+ <div class="eyebrow">A prayer for my Queen</div>
+ <div class="sun"></div>
+ <h2>Ya Allah…</h2>
+ <div class="card">
+  <p>Protect my Sarauniya and bless her with good health, happiness, peace of mind, and a heart that remains close to You.</p>
+  <p>Grant her success in all that is good. Keep sadness, harm, and hardship away from her as much as You can. Bless her family and grant her beautiful surprises from places she never expected.</p>
+  <p>And Ya Allah, grant me shifaa, restore my health, and allow us to see many beautiful days together.</p>
+  <p>Make our intentions sincere, our steps blessed, and our journey to Nikkah easy if it is خير for us.</p>
+  <p class="gold" style="font-size:24px">Ameen, Ya Rabb. 🤲</p>
+ </div>
+ <button class="btn" onclick="go(5)">A message just for you →</button>
+</section>
+
+<!-- 6: FINAL -->
+<section class="screen" id="s5">
+ <div class="eyebrow">One last thing, my love</div>
+ <div class="card">
+  <div class="heart">♡</div>
+  <h2 style="margin-top:20px">My Sarauniya.</h2>
+  <div class="rule"></div>
+  <div class="letter">
+   I may be a little unwell today, but I still wanted to make something that would put a smile on your face.<br><br>
+   I don't want you to worry too much about me. I'll rest, take care of myself, and do what I need to do to feel better, InshaAllah.<br><br>
+   I just want you to remember that everything will be okay. We have so much to pray for, so much to hope for, and so many beautiful things that Allah may still have waiting for us.<br><br>
+   Keep smiling for me. Take care of yourself. Don't forget your prayers. And remember that you are loved, appreciated, and always included in my duas.<br><br>
+   May Allah make our days brighter, our hearts calmer, our health stronger, and our future beautiful in ways we cannot yet imagine.<br><br>
+   I love you, my Queen. 💜
+  </div>
+  <div class="signature">Muhammad.</div>
+  <div class="rule"></div>
+  <p style="font-size:13px">Sending you a little sunshine, a little dua, and a whole lot of love.</p>
+ </div>
+ <button class="btn" onclick="go(0)">See your sunshine again ☀️</button>
+</section>
+
+<script>
+let current=0;
+function go(n){
+ document.getElementById('s'+current).classList.remove('active');
+ current=n;
+ document.getElementById('s'+current).classList.add('active');
+ document.getElementById('counter').textContent=
+ 'A LITTLE SUNSHINE · '+String(n+1).padStart(2,'0')+' / 06';
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+const sky=document.getElementById('sky');
+for(let i=0;i<8;i++){
+ const c=document.createElement('div');
+ c.className='cloud';
+ c.style.top=(8+Math.random()*70)+'%';
+ c.style.animationDuration=(30+Math.random()*45)+'s';
+ c.style.animationDelay=(-Math.random()*45)+'s';
+ c.style.opacity=.25+Math.random()*.3;
+ sky.appendChild(c);
+}
+for(let i=0;i<30;i++){
+ const p=document.createElement('div');
+ p.className='petal';
+ p.style.left=Math.random()*100+'%';
+ p.style.animationDuration=(8+Math.random()*14)+'s';
+ p.style.animationDelay=(-Math.random()*15)+'s';
+ p.style.opacity=.2+Math.random()*.5;
+ sky.appendChild(p);
+}
+</script>
+</body>
+</html>
